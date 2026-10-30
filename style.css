@@ -1,0 +1,298 @@
+/* Глобальные стили */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Світла тема (за замовчуванням) */
+body {
+    background-color: darkgrey;
+    color: #333;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+/* Темна тема */
+body.dark-theme {
+    background-color: #1a1a2e;
+    color: #eee;
+}
+
+body.dark-theme .container {
+    background-color: #16213e;
+    color: #eee;
+}
+
+body.dark-theme .country {
+    background-color: #0f3460;
+    color: #eee;
+    border-color: #555;
+}
+
+body.dark-theme .modal-content {
+    background-color: #16213e;
+    color: #eee;
+}
+
+body.dark-theme .close-btn {
+    color: #eee;
+}
+
+body.dark-theme .pagination button {
+    background-color: #0f3460;
+}
+
+body.dark-theme .pagination span {
+    color: #eee;
+}
+
+.container{
+    max-width: 1200px;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+}
+.filter{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom:20px;
+}
+#search,#region{
+    flex: 1 1 200px;
+    min-width: 150px;
+    max-width: 100%;
+    padding: 8px;
+}
+.countries-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top:8px ;
+}
+.country{
+  border: #333333 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: darkgrey 5px 3px 15px;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+.country img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.country h2 {
+    font-size: clamp(14px, 2.5vw, 18px);
+    margin-bottom: 5px;
+    word-break: break-word;
+}
+.country p {
+    font-size: clamp(12px, 2vw, 14px);
+    margin: 3px 0;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+.pagination button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: lightseagreen;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+.pagination button:hover {
+    background-color: #20b2aa;
+}
+.pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+.pagination span {
+    font-size: 14px;
+    color: #333;
+}
+h1{
+    text-align: center;
+    font-size: clamp(20px, 4vw, 32px);
+    padding: 10px;
+}
+#themeToggle {
+    padding: 8px 16px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: clamp(12px, 2vw, 16px);
+    background-color: lightseagreen;
+    color: white;
+}
+.modal {
+    display: none;                  /* приховане за замовчуванням */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  /* напівпрозорий чорний фон */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;                  /* показуємо при додаванні класу active */
+}
+
+/* Вміст модального вікна */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    max-width: 90%;
+    width: 400px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-content img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* Кнопка закриття */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+/* ===== Адаптивность ===== */
+
+/* Планшеты и меньше (768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 5px;
+    }
+    .container {
+        padding: 15px;
+    }
+    .countries-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 12px;
+    }
+    .country {
+        padding: 8px;
+    }
+    .modal-content {
+        padding: 15px;
+    }
+}
+
+/* Мобильные устройства (480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 3px;
+    }
+    .container {
+        padding: 10px;
+    }
+    .filter {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #search, #region {
+        flex: 1 1 100%;
+        width: 100%;
+        min-width: 0;
+    }
+    .countries-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .country {
+        padding: 8px;
+    }
+    .pagination {
+        gap: 8px;
+    }
+    .pagination button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    .pagination span {
+        font-size: 12px;
+    }
+    h1 {
+        padding: 5px;
+    }
+    #themeToggle {
+        margin: 5px;
+        padding: 6px 12px;
+    }
+    .modal-content {
+        max-width: 95%;
+        padding: 15px;
+    }
+    .modal-content img {
+        max-width: 150px;
+    }
+}
+
+/* Очень маленькие экраны (360px) */
+@media (max-width: 360px) {
+    .container {
+        padding: 8px;
+    }
+    .country {
+        padding: 6px;
+    }
+    .country img {
+        max-width: 150px;
+    }
+    .pagination button {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+}
+
+/* Большие экраны (1200px+) */
+@media (min-width: 1200px) {
+    .container {
+        padding: 30px;
+    }
+    .countries-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
+}
