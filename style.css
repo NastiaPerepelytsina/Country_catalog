@@ -52,6 +52,29 @@ body.dark-theme .pagination span {
     color: #eee;
 }
 
+#message {
+    margin: 10px 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #d90429;
+}
+
+body.dark-theme #message {
+    color: #ff4d6d;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    padding: 30px 0;
+}
+
+body.dark-theme .no-results {
+    color: #bbb;
+}
+
 .container{
     max-width: 1200px;
     margin: auto;

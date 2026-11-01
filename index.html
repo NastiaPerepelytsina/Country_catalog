@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Country catalog</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<button id="themeToggle">🌙 Темна тема</button>
-<h1>catalog country</h1>
+<button id="themeToggle">🌙 Dark mode</button>
+<h1>Country catalog</h1>
 <div class="modal" id="modal">
     <div class="modal-content">
         <span class="close-btn" id="closeBtn">&times;</span>
@@ -18,12 +18,12 @@
 </div>
 <div class="container">
 <div class="filter">
-    <input type="text" id="search" placeholder="search country">
+    <input type="text" id="search" placeholder="Search country...">
     <select id="region">
-        <option value="all">All</option>
+        <option value="all">All regions</option>
     </select>
 </div>
-<p>founded countries <span id="count"></span></p>
+<p>Countries found: <span id="count"></span></p>
 <div id="message"></div>
 <div id="countriesList" class="countries-grid"></div>
 </div>
